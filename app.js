@@ -19,10 +19,10 @@ function escribirHtml(){
         console.log(parrafo1);
     
         const parrafo2 = document.createElement('p');
-        parrafo2.textContent = "Reset y Desbloqueo : " + resultado.reset;
+        parrafo2.textContent = `Reset y Desbloqueo :${resultado.reset}`;
     
         const parrafo3 = document.createElement('p');
-        parrafo3.textContent = "Administrado por : " + resultado.administrador;
+        parrafo3.textContent = `Administrado por : ${resultado.administrador}`;
     
         const elementoHtml = document.getElementById('resultado');
         elementoHtml.appendChild(h2Primero);
@@ -41,4 +41,39 @@ function limpiarHTML() {
     while(resultado.firstChild) {
         resultado.removeChild(resultado.firstChild);
     }
+}
+
+function escribirHtmlImpresoras(){
+
+    limpiarHTML();
+
+    const ingresoUsuario = document.getElementById('buscando').value;
+    console.log(ingresoUsuario);
+
+    const h2Primero = document.createElement('h2');
+    h2Primero.textContent = `Resultado busqueda`;
+
+    const resultado = impresoras.find(item =>{
+        return item.direccion === ingresoUsuario;
+    })
+
+    if(resultado.direccion === ingresoUsuario){
+        const parrafo1 = document.createElement('p');
+        parrafo1.textContent = `Direccion IP: ${resultado.direccion}`;
+    
+        console.log(parrafo1);
+    
+        const parrafo2 = document.createElement('p');
+        parrafo2.textContent = `Nombre en servidor :  ${resultado.nombre_server}`;
+    
+        const parrafo3 = document.createElement('p');
+        parrafo3.textContent = `Servidor :   ${resultado.servidor}`;
+    
+        const elementoHtml = document.getElementById('resultado');
+        elementoHtml.appendChild(h2Primero);
+        elementoHtml.appendChild(parrafo1);
+        elementoHtml.appendChild(parrafo2);
+        elementoHtml.appendChild(parrafo3);
+    }
+
 }
