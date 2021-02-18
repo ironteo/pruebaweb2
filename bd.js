@@ -20,7 +20,7 @@ const aplicaciones = [
         administrador : "MDA"
     },
     {
-        aplicacion: "1019115815",
+        aplicacion: "'10.191.158.15'",
         reset : "Impresora en china",
         administrador : "dfsdfsd"
     },
